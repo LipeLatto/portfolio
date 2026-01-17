@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Felipe Rebelatto | Portfólio</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header class="nav-container">
+    <a href="#home">Felipe</a>
+    <div class="nav-menu">
+        <a href="#about">Sobre</a>
+        <a href="#projects">Projetos</a>
+        <a href="#contact">Contato</a>
+    </div>
+</header>
+
+<section id="home" class="hero fade">
+    <h1>Felipe Rebelatto Saldanha</h1>
+    <p>Front-End Developer • HTML • CSS • JavaScript</p>
+</section>
+
+
+<section id="about" class="section about fade">
+    <h2>Sobre mim</h2>
+    <p>Estudante de Engenharia de Software na Faculdade Assis Gurgacz, com foco em Desenvolvimento Front-End.
+Possuo conhecimentos em HTML, CSS e JavaScript, aplicados em projetos pessoais publicados no GitHub.
+Busco oportunidades para colocar meus aprendizados em prática, evoluir como desenvolvedor e contribuir com projetos reais.
+Perfil autodidata, organizado e com facilidade para trabalho em equipe.</p>
+</section>
+
+<section id="projects" class="section projects fade">
+    <h2>Meus Projetos</h2>
+
+    <div class="project-card">
+        <h3>Meu Site Pessoal</h3>
+        <a href="https://LipeLatto.github.io/novo.projeto/">Ver Online</a>
+        <a href="https://github.com/LipeLatto/novo.projeto">Ver Código</a>
+    </div>
+    <div class="project-card">
+        <h3>Jogo feito em Java</h3>
+        <a href="https://github.com/LipeLatto/jogo-java">Ver Código</a>
+    </div>
+    <div class="project-card">
+        <h3>Site feito em HTML,CSS e JavaScript</h3>
+        <a href="https://LipeLatto.github.io/site-html-css-curso/">Ver Online</a>
+        <a href="https://github.com/LipeLatto/site-html-css-curso">Ver Código</a>
+    </div>
+
+    <!-- FUTUROS PROJETOS AQUI -->
+</section>
+
+<section id="contact" class="section contact fade">
+    <h2>Contato</h2>
+    <p>Email: feliperebelatto87@gmail.com</p>
+    <p>Linkedin: https://www.linkedin.com/in/felipe-saldanha-244534379/</p>
+    <p>GitHub: <a href="https://github.com/LipeLatto">github.com/LipeLatto</a></p>
+</section>
+
+<footer class="footer">
+    © 2026 Felipe Rebelatto
+</footer>
+
+<script>
+  const elements = document.querySelectorAll(".fade");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+          // anima quando entra na tela
+          let opacity = 0;
+          let y = 20;
+
+          function animate() {
+            opacity += 0.04;
+            y -= 0.8;
+
+            entry.target.style.opacity = opacity;
+            entry.target.style.transform = `translateY(${y}px)`;
+
+            if (opacity < 1) {
+              requestAnimationFrame(animate);
+            }
+          }
+
+          animate();
+
+        } else {
+          // reseta quando sai da tela (loop)
+          entry.target.style.opacity = 0;
+          entry.target.style.transform = "translateY(20px)";
+        }
+
+      });
+    },
+    {
+      threshold: 0.2
+    }
+  );
+
+  elements.forEach(el => observer.observe(el));
+</script>
+
+
+
+</body>
+</html>
